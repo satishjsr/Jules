@@ -1,0 +1,191 @@
+/* =========================================================
+   TEMPLE STREET 2030 - LIQUID LANDING PAGE (RESPONSIVE)
+========================================================= */
+:root {
+    --brand-red: #CE2029; --brand-green: #0A4D3C; --brand-yellow: #ECA322;
+    --text-main: #1A1C1E; --text-soft: #64748B;
+    --font-heading: 'Outfit', sans-serif; --font-body: 'Plus Jakarta Sans', sans-serif;
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --bg-canvas: #FDF9F1;
+}
+
+/* 🟢 THE APPLE TEXT SECRET */
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-canvas);
+    background-image:
+        radial-gradient(circle at 0% 0%, rgba(236, 163, 34, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(10, 77, 60, 0.08) 0%, transparent 50%);
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    color: #1d1d1f; /* Apple uses off-black, never pure black #000 */
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+
+    /* 🔥 The Magic Text Lines */
+    -webkit-font-smoothing: antialiased; /* Mac/iOS jaisi crisp sharpness */
+    -moz-osx-font-smoothing: grayscale; /* Firefox par text sharp karta hai */
+    text-rendering: optimizeLegibility; /* Words ke beech ki spacing perfect karta hai */
+}
+
+/* 🟢 THE APPLE IMAGE SECRET */
+img {
+    image-rendering: -webkit-optimize-contrast; /* Safari/Chrome me images sharp karta hai */
+    image-rendering: high-quality;
+    transform: translateZ(0); /* Hardware acceleration on karta hai, image fategi nahi */
+    backface-visibility: hidden;
+}
+/* =========================================================
+   🟢 SLEEK TOP NAVBAR (Brand + Trust)
+========================================================= */
+.top-navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background: rgba(253, 249, 241, 0.85); /* Matches your canvas BG with glass effect */
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(0,0,0,0.03);
+    z-index: 2000;
+}
+
+.nav-logo {
+    height: 38px; /* Logo itna bada rahega ki text aaram se padha jaye */
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-pill {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.05);
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--brand-green);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+}
+
+.header-compact { padding-top: 85px; } /* Content ko navbar ke theek niche se shuru karega */
+
+/* 🟢 MOBILE ADJUSTMENTS */
+@media (max-width: 480px) {
+    .top-navbar { padding: 10px 15px; }
+    .nav-logo { height: 32px; } /* Mobile par thoda sleek */
+    .nav-pill { font-size: 0.65rem; padding: 5px 10px; }
+    .header-compact { padding-top: 75px; }
+}
+
+/* 🟢 HEADER REDUCTION: Space Saving */
+.header-compact { padding-top: 70px; } /* Pill ke theek niche se start hoga */
+
+/* 🟢 Container & Hero Section */
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px 50px; }
+.hero { text-align: center; margin: 10px 0 25px; }
+.hero-title { font-family: var(--font-heading); font-size: 2.8rem; font-weight: 900; color: var(--brand-green); line-height: 1.1; margin: 0 0 8px; letter-spacing: -1px; }
+.hero-subtitle { font-size: 1.05rem; color: var(--text-soft); font-weight: 500; margin: 0; }
+
+/* 🟢 Ambient Status Box */
+.ambient-status {
+    text-align: center; font-size: 0.85rem; font-weight: 700; color: var(--brand-yellow);
+    background: rgba(236, 163, 34, 0.1); padding: 8px 15px; border-radius: 50px;
+    display: block; width: max-content; max-width: 90%;
+    margin: 0 auto 25px auto; line-height: 1.4;
+}
+
+/* 🟢 Layout Wrapper & Cards */
+.outlets-wrapper { display: flex; flex-direction: column; gap: 25px; align-items: center; }
+
+.outlet-card {
+    background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.9); border-radius: 30px; padding: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.04); position: relative; transition: 0.3s;
+    width: 100%; max-width: 450px; box-sizing: border-box;
+}
+.outlet-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.06); }
+.outlet-card:active { transform: scale(0.98); }
+
+.card-badge {
+    position: absolute; top: 25px; left: 25px; background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px); padding: 6px 12px; border-radius: 50px;
+    font-size: 0.75rem; font-weight: 800; color: var(--brand-green); z-index: 10;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); font-family: var(--font-heading);
+}
+
+.card-img {
+    width: 100%;
+    height: auto; /* Changed to auto so aspect-ratio controls it perfectly */
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    background-color: #f0f0f0;
+}
+
+.card-body { padding: 0 10px 10px; }
+.outlet-name { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; color: var(--text-main); margin: 0 0 8px; }
+.outlet-meta { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 700; color: var(--text-soft); margin-bottom: 8px; flex-wrap: wrap;}
+.outlet-meta .rating { color: #F59E0B; }
+.dot { color: #ccc; }
+
+.cuisine-tags { font-size: 0.8rem; color: #888; font-weight: 600; margin: 0 0 15px; }
+.status-row { font-size: 0.8rem; font-weight: 700; color: var(--brand-green); display: flex; align-items: center; gap: 6px; margin-bottom: 20px; }
+.status-indicator { width: 8px; height: 8px; background: #10B981; border-radius: 50%; box-shadow: 0 0 0 3px rgba(16,185,129,0.2); }
+
+.order-btn {
+    display: block; width: 100%; text-align: center; background: var(--text-main);
+    color: white; padding: 18px; border-radius: 18px; font-family: var(--font-heading);
+    font-weight: 800; font-size: 1.1rem; text-decoration: none; transition: 0.3s;
+    box-sizing: border-box;
+}
+.order-btn:active { background: var(--brand-green); transform: scale(0.95); }
+
+/* Animations */
+.fade-in-up { animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.fade-in-down { animation: fadeInDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+
+/* =========================================================
+   🟢 MASTER MOBILE OPTIMIZATION (Merged)
+========================================================= */
+@media (max-width: 480px) {
+    .header-compact { padding-top: 60px; }
+    .pill-logo { height: 18px; }
+    .pill-text { font-size: 0.65rem; }
+    .hero { margin: 5px 0 15px; }
+    .hero-title { font-size: 1.8rem; } /* Override hataya, ab space save hoga */
+    .hero-subtitle { font-size: 0.95rem; }
+    .ambient-status { font-size: 0.75rem; padding: 6px 12px; margin-bottom: 20px; }
+    .outlets-wrapper { gap: 20px; }
+    .outlet-name { font-size: 1.4rem; }
+    .order-btn { padding: 14px; font-size: 1rem; }
+}
+
+/* =========================================================
+   🟢 DESKTOP PERFECT GRID
+========================================================= */
+@media (min-width: 768px) {
+    .outlets-wrapper {
+        flex-direction: row;
+        justify-content: center;
+        align-items: stretch;
+        gap: 40px;
+    }
+    .hero { margin: 40px 0; }
+    .hero-title { font-size: 3.5rem; }
+    .hero-subtitle { font-size: 1.2rem; }
+    .header-compact { padding-top: 80px; }
+}
+/* TS 2030 Utility Classes */
+.hidden { display: none !important; }
+.hidden-initial { display: none; }
+.text-brand-green { color: var(--brand-green); }
+.font-800 { font-weight: 800; }
+.font-700 { font-weight: 700; }
+.underline { text-decoration: underline; }
+.pointer { cursor: pointer; }

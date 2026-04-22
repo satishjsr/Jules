@@ -1,0 +1,79 @@
+/* Temple Street 2030 - Menu Styles */
+.back-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.outlet-title {
+    font-size: 1.2rem;
+}
+
+.menu-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.category-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    color: #BD1C1B;
+    margin-top: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.menu-item {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+
+.menu-item:active {
+    transform: scale(0.98);
+}
+
+.item-info h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.item-price {
+    display: block;
+    margin-top: 4px;
+    font-weight: 700;
+    color: #004331;
+}
+
+.add-btn {
+    background: #004331;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(0,67,49,0.2);
+}
+
+#group-order-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #004331;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 1000;
+    font-weight: 700;
+}

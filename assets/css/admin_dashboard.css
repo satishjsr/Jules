@@ -1,0 +1,90 @@
+/* Temple Street 2030 - Admin Dashboard Styles */
+body {
+    font-family: 'Outfit', sans-serif;
+    background: #F9FAFB;
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 260px;
+    background: #004331;
+    color: white;
+    padding: 30px 20px;
+}
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 20px;
+}
+
+.nav-link {
+    display: block;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    padding: 12px 0;
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.stat-card h3 {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.stat-card p {
+    margin: 10px 0 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #004331;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logout-btn {
+    color: #BD1C1B;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* TS 2030 Admin Dashboard Utility Classes */
+.mt-50 { margin-top: 50px; }
+.mt-40 { margin-top: 40px; }
+.text-danger { color: #FF6B6B; }
+.text-muted { color: #666; }
+.bg-white { background: white; }
+.p-30 { padding: 30px; }
+.rounded-20 { border-radius: 20px; }
+.shadow-sm { box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
