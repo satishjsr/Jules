@@ -2,8 +2,13 @@
 require_once 'auth.php';
 check_auth();
 
-// Placeholder for database connection
-// $db = new SQLite3('../data/temple_street.db');
+$db = get_db_connection();
+
+// Fetch Active Group Sessions
+$sessions_query = $db->query("SELECT * FROM group_sessions ORDER BY id DESC");
+$active_sessions_count = $db->querySingle("SELECT COUNT(*) FROM group_sessions WHERE status = 'Active'");
+$total_members_count = $db->querySingle("SELECT COUNT(*) FROM group_members");
+$total_items_count = $db->querySingle("SELECT COUNT(*) FROM group_cart");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,21 +38,44 @@ check_auth();
         <div class="stats-grid">
             <div class="stat-card">
                 <h3>Active Group Sessions</h3>
-                <p>0</p>
+                <p><?php echo $active_sessions_count; ?></p>
             </div>
             <div class="stat-card">
-                <h3>Total Orders Today</h3>
-                <p>0</p>
+                <h3>Total Group Members</h3>
+                <p><?php echo $total_members_count; ?></p>
             </div>
             <div class="stat-card">
-                <h3>Revenue Today</h3>
-                <p>₹0.00</p>
+                <h3>Items in Group Carts</h3>
+                <p><?php echo $total_items_count; ?></p>
             </div>
         </div>
 
         <div class="mt-40 bg-white p-30 rounded-20 shadow-sm">
-            <h2>Live Group Activity</h2>
-            <p class="text-muted">No active group orders at the moment. When Phase 3 is implemented, live polling will appear here.</p>
+            <h2>Recent Group Activity</h2>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                <thead>
+                    <tr style="text-align: left; border-bottom: 2px solid #F5F5F5;">
+                        <th style="padding: 10px;">Host Name</th>
+                        <th style="padding: 10px;">Group ID</th>
+                        <th style="padding: 10px;">Status</th>
+                        <th style="padding: 10px;">Budget</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php while ($row = $sessions_query->fetchArray(SQLITE3_ASSOC)): ?>
+                        <tr style="border-bottom: 1px solid #F9F9F9;">
+                            <td style="padding: 10px;"><?php echo htmlspecialchars($row['host_name']); ?></td>
+                            <td style="padding: 10px;"><?php echo htmlspecialchars($row['group_id']); ?></td>
+                            <td style="padding: 10px;">
+                                <span style="color: <?php echo $row['status'] == 'Active' ? '#004331' : '#666'; ?>; font-weight: 700;">
+                                    <?php echo $row['status']; ?>
+                                </span>
+                            </td>
+                            <td style="padding: 10px;">₹<?php echo $row['budget_limit']; ?></td>
+                        </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </body>
