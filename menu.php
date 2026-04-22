@@ -2,6 +2,8 @@
 // Temple Street 2030 - Menu Page
 header("X-Frame-Options: DENY");
 header("X-XSS-Protection: 1; mode=block");
+header("X-Content-Type-Options: nosniff");
+header("Content-Security-Policy: default-src 'self'; script-src 'self' https://fonts.googleapis.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://templestreet.in;");
 
 $outlet = isset($_GET['outlet']) ? $_GET['outlet'] : 'rajinder';
 $outlet_name = ($outlet == 'ashok') ? "Ashok Nagar" : "Old Rajinder Nagar";
@@ -14,6 +16,7 @@ $outlet_name = ($outlet == 'ashok') ? "Ashok Nagar" : "Old Rajinder Nagar";
     <title>Menu - Temple Street <?php echo htmlspecialchars($outlet_name); ?></title>
     <link rel="stylesheet" href="assets/css/landing_2030.css">
     <link rel="stylesheet" href="assets/css/menu_2030.css">
+    <link rel="stylesheet" href="assets/css/group_order.css">
 </head>
 <body>
     <header class="top-navbar">
@@ -44,6 +47,12 @@ $outlet_name = ($outlet == 'ashok') ? "Ashok Nagar" : "Old Rajinder Nagar";
         Start a Group Order! 👥
     </div>
 
+    <!-- Glowing Cart Button -->
+    <button id="glowing-cart" class="glowing-cart-btn hidden">
+        🛒
+    </button>
+
     <script src="assets/js/landing.js"></script>
+    <script src="assets/js/group_order.js"></script>
 </body>
 </html>

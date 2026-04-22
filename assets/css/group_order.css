@@ -1,0 +1,146 @@
+/* Temple Street 2030 - Group Order System Styles */
+
+/* Sticky Banner */
+.group-status-banner {
+    background: #004331;
+    color: white;
+    padding: 12px 20px;
+    position: sticky;
+    top: 60px;
+    z-index: 999;
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+/* Glowing Cart Button */
+.glowing-cart-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    background: #004331;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 0 20px rgba(0,67,49,0.5);
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    animation: glow 2s infinite;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px rgba(0,67,49,0.5); }
+    50% { box-shadow: 0 0 25px rgba(0,67,49,0.8); }
+    100% { box-shadow: 0 0 5px rgba(0,67,49,0.5); }
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.modal-title {
+    color: #BD1C1B;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #EEE;
+    border-radius: 12px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.tag-selector {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.tag-option {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #EEE;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.2s;
+}
+
+.tag-option.active {
+    border-color: #004331;
+    background: #004331;
+    color: white;
+}
+
+.modal-btn {
+    width: 100%;
+    padding: 15px;
+    background: #004331;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 700;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.whatsapp-btn {
+    background: #25D366 !important;
+    display: block;
+    text-decoration: none;
+}
+
+.no-style {
+    text-decoration: none;
+    color: inherit;
+}

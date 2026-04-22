@@ -4,7 +4,7 @@ header("X-Frame-Options: DENY");
 header("X-XSS-Protection: 1; mode=block");
 header("X-Content-Type-Options: nosniff");
 header("Referrer-Policy: strict-origin-when-cross-origin");
-header("Content-Security-Policy: default-src 'self'; script-src 'self' https://fonts.googleapis.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://templestreet.in;");
+header("Content-Security-Policy: default-src 'self'; script-src 'self' https://fonts.googleapis.com https://maps.googleapis.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline' https://maps.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://templestreet.in https://maps.gstatic.com https://maps.googleapis.com; connect-src 'self' https://maps.googleapis.com;");
 
 $page_title = "Order Pure Veg Food Online | Temple Street Delhi | Rajinder Nagar & Ashok Nagar";
 $page_description = "Order premium pure vegetarian food online from Temple Street. Authentic North Indian, South Indian, Thalis & Snacks delivered hot and fresh. Open in Old Rajinder Nagar & Ashok Nagar.";
@@ -30,9 +30,7 @@ $page_description = "Order premium pure vegetarian food online from Temple Stree
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
     <?php require_once 'includes/config.php'; ?>
     <link rel="stylesheet" href="assets/css/landing_2030.css?v=2030.6">
-    <script>
-        const GOOGLE_MAPS_API_KEY = "<?php echo GOOGLE_MAPS_API_KEY; ?>";
-    </script>
+    <meta id="google-maps-config" data-api-key="<?php echo GOOGLE_MAPS_API_KEY; ?>">
 
     <script type="application/ld+json">
     {

@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const listContainer = document.getElementById('outlet-list');
+    if (!listContainer) return; // Exit if not on landing page
+
     const ambientStatus = document.getElementById('ambient-status');
     const cards = Array.from(document.querySelectorAll('.outlet-card'));
-    const listContainer = document.getElementById('outlet-list');
 
     // 🟢 1. NEURO-CONTEXT ENGINE (Dynamic Messages)
     const hour = new Date().getHours();
@@ -63,8 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
         isGoogleApiLoading = true;
 
         const script = document.createElement('script');
-        // API Key is injected from backend via index.php
-        script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=places`;
+        // API Key is retrieved from meta tag for strict architectural adherence
+        const apiKey = document.getElementById('google-maps-config').getAttribute('data-api-key');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
         script.onload = () => {
             isGoogleApiLoading = false;
             callback();

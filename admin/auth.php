@@ -4,7 +4,7 @@ session_start();
 require_once __DIR__ . '/../includes/config.php';
 
 function login($username, $password) {
-    if ($username === ADMIN_USERNAME && $password === ADMIN_PASSWORD) {
+    if ($username === ADMIN_USERNAME && password_verify($password, ADMIN_PASSWORD_HASH)) {
         $_SESSION['admin_logged_in'] = true;
         $_SESSION['admin_user'] = $username;
         return true;

@@ -3,7 +3,8 @@
 // NOTE: In a real production environment, these should be environment variables.
 
 define('ADMIN_USERNAME', 'admin');
-define('ADMIN_PASSWORD', 'TempleStreet2030_Secure'); // Should be hashed in DB
+// Hashed password for 'TempleStreet2030_Secure'
+define('ADMIN_PASSWORD_HASH', '$2y$10$FAUbOcLNwU9ac/3I9zj7jeVgG9F..FvHGeKp.eIz3v/j7yfK99rBK');
 define('GOOGLE_MAPS_API_KEY', 'YOUR_RESTRICTED_API_KEY_HERE');
 define('DB_PATH', __DIR__ . '/../data/temple_street.db');
 
